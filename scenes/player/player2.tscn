@@ -1,0 +1,185 @@
+[gd_scene format=3 uid="uid://b446xics7b4gf"]
+
+[ext_resource type="Texture2D" uid="uid://dsdm10n77ixjg" path="res://assets/player/Mage/Attack/attack1.png" id="1_i3e8d"]
+[ext_resource type="Texture2D" uid="uid://wuijk7ogalgy" path="res://assets/player/Mage/Attack/attack2.png" id="2_t3re7"]
+[ext_resource type="Texture2D" uid="uid://bn1xmuyijysst" path="res://assets/player/Mage/Attack/attack3.png" id="3_ei6x5"]
+[ext_resource type="Texture2D" uid="uid://jf8smtjg5uts" path="res://assets/player/Mage/Attack/attack4.png" id="4_5gtow"]
+[ext_resource type="Texture2D" uid="uid://bq2bnl2qrki8r" path="res://assets/player/Mage/Attack/attack5.png" id="5_d0s8p"]
+[ext_resource type="Texture2D" uid="uid://cvt774pjkmuqv" path="res://assets/player/Mage/Attack/attack6.png" id="6_uyjhk"]
+[ext_resource type="Texture2D" uid="uid://dwlb2pxametji" path="res://assets/player/Mage/Attack/attack7.png" id="7_werml"]
+[ext_resource type="Texture2D" uid="uid://g07fkc8jf3fx" path="res://assets/player/Mage/Fire/fire1.png" id="8_yujd5"]
+[ext_resource type="Texture2D" uid="uid://hphskno6k1k7" path="res://assets/player/Mage/Fire/fire2.png" id="9_u6m4r"]
+[ext_resource type="Texture2D" uid="uid://wh68vk8rfehn" path="res://assets/player/Mage/Fire/fire3.png" id="10_cubkc"]
+[ext_resource type="Texture2D" uid="uid://bdi4g4wvbh6ot" path="res://assets/player/Mage/Fire/fire4.png" id="11_u5o1w"]
+[ext_resource type="Texture2D" uid="uid://br3aocvsdidt3" path="res://assets/player/Mage/Fire/fire5.png" id="12_a2vvd"]
+[ext_resource type="Texture2D" uid="uid://duln3na583xuq" path="res://assets/player/Mage/Fire/fire6.png" id="13_le1d5"]
+[ext_resource type="Texture2D" uid="uid://c6ighn2lx3bsr" path="res://assets/player/Mage/Fire/fire7.png" id="14_f03y6"]
+[ext_resource type="Texture2D" uid="uid://c7p8jyxamd7eo" path="res://assets/player/Mage/Fire/fire8.png" id="15_2fx5h"]
+[ext_resource type="Texture2D" uid="uid://8218m4aor6rc" path="res://assets/player/Mage/Fire/fire9.png" id="16_l0r6e"]
+[ext_resource type="Texture2D" uid="uid://clwj5178oqgr7" path="res://assets/player/Mage/Idle/idle1.png" id="17_k0fhg"]
+[ext_resource type="Texture2D" uid="uid://4dr5rh2y5mr7" path="res://assets/player/Mage/Idle/idle2.png" id="18_m2eyl"]
+[ext_resource type="Texture2D" uid="uid://b42hcuq28qn1r" path="res://assets/player/Mage/Idle/idle3.png" id="19_efec5"]
+[ext_resource type="Texture2D" uid="uid://cr4jv32qw2bv8" path="res://assets/player/Mage/Idle/idle4.png" id="20_fkpu4"]
+[ext_resource type="Texture2D" uid="uid://blj2asaatfaqf" path="res://assets/player/Mage/Idle/idle5.png" id="21_4jpsc"]
+[ext_resource type="Texture2D" uid="uid://jvb0eexp0l0n" path="res://assets/player/Mage/Idle/idle6.png" id="22_s337n"]
+[ext_resource type="Texture2D" uid="uid://b7c05dmea03t4" path="res://assets/player/Mage/Idle/idle7.png" id="23_xwuj4"]
+[ext_resource type="Texture2D" uid="uid://4y7ljo67vqts" path="res://assets/player/Mage/Idle/idle8.png" id="24_pyf0r"]
+[ext_resource type="Texture2D" uid="uid://b64ul6r8cyyfh" path="res://assets/player/Mage/Idle/idle9.png" id="25_52mnc"]
+[ext_resource type="Texture2D" uid="uid://lknqoeh0wb5q" path="res://assets/player/Mage/Idle/idle10.png" id="26_cknbg"]
+[ext_resource type="Texture2D" uid="uid://bqtamufg6vtei" path="res://assets/player/Mage/Idle/idle11.png" id="27_v2egn"]
+[ext_resource type="Texture2D" uid="uid://ci5c7o4dr3i8" path="res://assets/player/Mage/Idle/idle12.png" id="28_apr2g"]
+[ext_resource type="Texture2D" uid="uid://2hm323idt2hx" path="res://assets/player/Mage/Idle/idle13.png" id="29_5xaj4"]
+[ext_resource type="Texture2D" uid="uid://bnok70fiow0ek" path="res://assets/player/Mage/Idle/idle14.png" id="30_4wdas"]
+[ext_resource type="Texture2D" uid="uid://d0iice10sfmfw" path="res://assets/player/Mage/Run/run1.png" id="31_kh858"]
+[ext_resource type="Texture2D" uid="uid://rqbnl6mac2qy" path="res://assets/player/Mage/Run/run2.png" id="32_spa4j"]
+[ext_resource type="Texture2D" uid="uid://drka2qaeymo70" path="res://assets/player/Mage/Run/run3.png" id="33_lje0d"]
+[ext_resource type="Texture2D" uid="uid://ctrsy0iptg4pr" path="res://assets/player/Mage/Run/run4.png" id="34_dqhbx"]
+[ext_resource type="Texture2D" uid="uid://bqjefu5r5mdib" path="res://assets/player/Mage/Run/run5.png" id="35_y8i6t"]
+[ext_resource type="Texture2D" uid="uid://chfyfn267dncp" path="res://assets/player/Mage/Run/run6.png" id="36_ip2sa"]
+[ext_resource type="Texture2D" uid="uid://covmpemwv3dj6" path="res://assets/player/Mage/Run/run7.png" id="37_b843c"]
+[ext_resource type="Texture2D" uid="uid://clccmadkp50lx" path="res://assets/player/Mage/Run/run8.png" id="38_p0we6"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_uf1yu"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_i3e8d")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_t3re7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_ei6x5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_5gtow")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_d0s8p")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_uyjhk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_werml")
+}],
+"loop": true,
+"name": &"attack",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("8_yujd5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_u6m4r")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_cubkc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_u5o1w")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_a2vvd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_le1d5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_f03y6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_2fx5h")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_l0r6e")
+}],
+"loop": true,
+"name": &"fire",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("17_k0fhg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_m2eyl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_efec5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("20_fkpu4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("21_4jpsc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("22_s337n")
+}, {
+"duration": 1.0,
+"texture": ExtResource("23_xwuj4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("24_pyf0r")
+}, {
+"duration": 1.0,
+"texture": ExtResource("25_52mnc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("26_cknbg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("27_v2egn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("28_apr2g")
+}, {
+"duration": 1.0,
+"texture": ExtResource("29_5xaj4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("30_4wdas")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("31_kh858")
+}, {
+"duration": 1.0,
+"texture": ExtResource("32_spa4j")
+}, {
+"duration": 1.0,
+"texture": ExtResource("33_lje0d")
+}, {
+"duration": 1.0,
+"texture": ExtResource("34_dqhbx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("35_y8i6t")
+}, {
+"duration": 1.0,
+"texture": ExtResource("36_ip2sa")
+}, {
+"duration": 1.0,
+"texture": ExtResource("37_b843c")
+}, {
+"duration": 1.0,
+"texture": ExtResource("38_p0we6")
+}],
+"loop": true,
+"name": &"run",
+"speed": 5.0
+}]
+
+[node name="Player2" type="CharacterBody2D" unique_id=925622954]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1573898317]
+sprite_frames = SubResource("SpriteFrames_uf1yu")
+animation = &"fire"
+frame = 1
+frame_progress = 0.77254766

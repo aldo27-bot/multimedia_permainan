@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://b5daf2jtmsi4m"]
+
+[ext_resource type="Script" uid="uid://cb4jqo0d1sild" path="res://scripts/health_hud_boss.gd" id="1_c70og"]
+[ext_resource type="Texture2D" uid="uid://b1wug2itc45l7" path="res://assets/logo_heart.png" id="2_6cj7p"]
+
+[node name="HealthHUDBoss" type="CanvasLayer" unique_id=1973912371]
+script = ExtResource("1_c70og")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=1950443309]
+offset_left = 981.0
+offset_top = 11.0
+offset_right = 1099.0
+offset_bottom = 71.0
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer" unique_id=720079733]
+custom_minimum_size = Vector2(60, 60)
+layout_mode = 2
+texture = ExtResource("2_6cj7p")
+expand_mode = 5
+stretch_mode = 5
+
+[node name="HealthLabel" type="Label" parent="HBoxContainer" unique_id=1745559979]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 28
+text = "5/5"

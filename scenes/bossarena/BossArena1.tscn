@@ -1,0 +1,59 @@
+[gd_scene format=3 uid="uid://75swywkgib6u"]
+
+[ext_resource type="Texture2D" uid="uid://dcfxtoxadrwd" path="res://assets/backgrounds/background_hutan1.png" id="1_05pij"]
+[ext_resource type="PackedScene" uid="uid://do8hjmn2lmfx8" path="res://scenes/player/player.tscn" id="2_ewsyu"]
+[ext_resource type="PackedScene" uid="uid://c4e3gh5h7dr0v" path="res://scenes/mob/Boss1.tscn" id="3_kyu7g"]
+[ext_resource type="PackedScene" uid="uid://dlxbq5es5a1ya" path="res://scenes/extra/health_hud.tscn" id="4_ewsyu"]
+[ext_resource type="PackedScene" uid="uid://b5daf2jtmsi4m" path="res://scenes/extra/health_hud_boss.tscn" id="5_kyu7g"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_u1xfj"]
+size = Vector2(1152, 224)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nha0i"]
+size = Vector2(40, 648)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_q24mn"]
+size = Vector2(40, 648)
+
+[node name="Main" type="Node2D" unique_id=1828190412]
+
+[node name="Background" type="TextureRect" parent="." unique_id=726568307]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 1152.0
+offset_bottom = 648.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_05pij")
+expand_mode = 1
+stretch_mode = 6
+
+[node name="Ground" type="StaticBody2D" parent="." unique_id=2015259105]
+position = Vector2(576, 620)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground" unique_id=207689423]
+position = Vector2(0, -94)
+shape = SubResource("RectangleShape2D_u1xfj")
+
+[node name="LeftWall" type="StaticBody2D" parent="." unique_id=2061110203]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LeftWall" unique_id=1045543654]
+position = Vector2(0, 324)
+shape = SubResource("RectangleShape2D_nha0i")
+
+[node name="RightWall" type="StaticBody2D" parent="." unique_id=467508163]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RightWall" unique_id=872625193]
+position = Vector2(1152, 324)
+shape = SubResource("RectangleShape2D_q24mn")
+
+[node name="Player" parent="." unique_id=1913331183 instance=ExtResource("2_ewsyu")]
+position = Vector2(283, 359)
+
+[node name="Boss1" parent="." unique_id=146484570 instance=ExtResource("3_kyu7g")]
+position = Vector2(882, 301)
+
+[node name="HealthHUD" parent="." unique_id=1973912371 instance=ExtResource("4_ewsyu")]
+
+[node name="HealthHUD2" parent="." unique_id=187090666 instance=ExtResource("5_kyu7g")]
