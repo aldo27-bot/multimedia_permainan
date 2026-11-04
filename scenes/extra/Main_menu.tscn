@@ -1,0 +1,46 @@
+[gd_scene format=3 uid="uid://lneh8a058vcr"]
+
+[ext_resource type="Texture2D" uid="uid://dj8o05bjxn6vp" path="res://assets/backgrounds/background main_menu.png" id="1_h665v"]
+[ext_resource type="Script" uid="uid://s5uxxiyod1rv" path="res://scripts/main_menu.gd" id="1_r42x7"]
+[ext_resource type="Texture2D" uid="uid://dhmw0w0hd2w1f" path="res://assets/Logo Fantasi Hikari Knight.png" id="2_c4ikl"]
+[ext_resource type="Texture2D" uid="uid://b5mwntui5saea" path="res://assets/menulevel/play.png" id="3_77njy"]
+
+[node name="MainMenu" type="Control" unique_id=1903118399]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_r42x7")
+
+[node name="Background" type="TextureRect" parent="." unique_id=1588300543]
+layout_mode = 0
+offset_right = 1152.0
+offset_bottom = 647.0
+texture = ExtResource("1_h665v")
+expand_mode = 1
+
+[node name="Logo" type="TextureRect" parent="." unique_id=1091202842]
+layout_mode = 1
+offset_left = 413.0
+offset_top = -5.0
+offset_right = 746.0
+offset_bottom = 277.0
+texture = ExtResource("2_c4ikl")
+expand_mode = 1
+
+[node name="Play_button" type="TextureButton" parent="." unique_id=289849317]
+layout_mode = 0
+offset_left = 463.0
+offset_top = 298.0
+offset_right = 695.0
+offset_bottom = 398.0
+texture_normal = ExtResource("3_77njy")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Label" type="Label" parent="Play_button" unique_id=2006703397]
+layout_mode = 0
+offset_left = 82.0
+offset_top = 27.0
+offset_right = 154.0
+offset_bottom = 69.0
+theme_override_font_sizes/font_size = 30
+text = "Main"

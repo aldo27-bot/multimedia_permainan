@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://dk81fp2m5dme3" path="res://assets/boss/Hurt.png" id="3_vlubk"]
 [ext_resource type="Texture2D" uid="uid://hwcw113nxs4c" path="res://assets/boss/Walk.png" id="4_3j0c8"]
 [ext_resource type="Texture2D" uid="uid://wr0itkd1oqih" path="res://assets/boss/Idle.png" id="5_i8wox"]
+[ext_resource type="AudioStream" uid="uid://bud55vqcebfi4" path="res://assets/Audio/Sound-minotaur.ogg" id="7_vlubk"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_42bmg"]
 atlas = ExtResource("1_0e0s3")
@@ -294,6 +295,7 @@ position = Vector2(9.499995, -12.000008)
 scale = Vector2(2.3515625, 2.25)
 sprite_frames = SubResource("SpriteFrames_fwqvm")
 animation = &"idle"
+flip_h = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=869108378]
 position = Vector2(-11.5, 34.5)
@@ -304,3 +306,7 @@ shape = SubResource("RectangleShape2D_oupk1")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AttackArea" unique_id=1419506688]
 position = Vector2(113.125, 84.75)
 shape = SubResource("RectangleShape2D_vlubk")
+
+[node name="SFX_Attack" type="AudioStreamPlayer2D" parent="." unique_id=1682267931]
+stream = ExtResource("7_vlubk")
+volume_db = -5.0

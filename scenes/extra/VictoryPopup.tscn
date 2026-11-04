@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://whga0i7oder7"]
+
+[ext_resource type="Script" uid="uid://b8ykg6k3ojxov" path="res://scripts/victory_popup.gd" id="1_tb0uh"]
+[ext_resource type="Texture2D" uid="uid://w738pbrvfsac" path="res://assets/win/popup_win.png" id="1_u0a1i"]
+
+[node name="VictoryPopup" type="CanvasLayer" unique_id=2037768998]
+process_mode = 3
+script = ExtResource("1_tb0uh")
+level_menu_path = "uid://c6bv1of0itov6"
+
+[node name="Background" type="ColorRect" parent="." unique_id=2724803]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.026160505, 0.026160505, 0.026160505, 0.3254902)
+
+[node name="CenterContainer" type="CenterContainer" parent="Background" unique_id=469414891]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VictoryImage" type="TextureRect" parent="Background/CenterContainer" unique_id=1789704034]
+layout_mode = 2
+texture = ExtResource("1_u0a1i")

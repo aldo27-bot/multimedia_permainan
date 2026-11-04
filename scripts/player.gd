@@ -1,4 +1,3 @@
-
 extends CharacterBody2D
 
 signal health_changed(current_health: int, maximum_health: int)
@@ -7,7 +6,12 @@ const SPEED := 160.0
 const JUMP_FORCE := -450.0
 const GRAVITY := 1200.0
 const RESPAWN_DELAY := 3.0
-const LEVEL_1_SCENE: String = "res://scenes/main/Level_1.tscn"
+
+const LEVEL_1_SCENE := "res://scenes/main/level_1.tscn"
+const LEVEL_2_SCENE := "res://scenes/main/level2.tscn"
+
+const BOSS_ARENA_1 := "res://scenes/bossarena/BossArena1.tscn"
+const BOSS_ARENA_2 := "res://scenes/bossarena/BossArena2.tscn"
 
 @export var max_health: int = 5
 
@@ -39,7 +43,6 @@ func _ready() -> void:
 	if not sprite.animation_finished.is_connected(_on_animation_finished):
 		sprite.animation_finished.connect(_on_animation_finished)
 
-	# Kirim HP awal ke HUD.
 	health_changed.emit(health, max_health)
 
 
@@ -83,7 +86,7 @@ func update_animation(direction: float) -> void:
 		return
 
 	if not is_on_floor():
-		sprite.play("Jump")
+		sprite.play("jump")
 	elif direction != 0.0:
 		sprite.play("run")
 	else:
@@ -160,8 +163,6 @@ func take_damage(amount: int = 1) -> void:
 		return
 
 	health = maxi(health - amount, 0)
-
-	# Perbarui angka HP di HUD setiap menerima damage.
 	health_changed.emit(health, max_health)
 
 	if health <= 0:
@@ -191,8 +192,8 @@ func die() -> void:
 	slash_sound.stop()
 
 	sprite.play("dead")
-	respawn_player()
 
+	respawn_player()
 
 func respawn_player() -> void:
 	if is_respawning:
@@ -213,17 +214,34 @@ func respawn_player() -> void:
 
 	var current_path: String = current_scene.scene_file_path
 
-	# Jika kalah di arena Boss, kembali ke Level 1.
-	if current_path != LEVEL_1_SCENE:
+	# MATI DI LEVEL 1
+	if current_path == LEVEL_1_SCENE:
+		respawn_at_spawn()
+		return
+
+	# MATI DI LEVEL 2
+	if current_path == LEVEL_2_SCENE:
+		respawn_at_spawn()
+		return
+
+	# MATI DI BOSS ARENA 1
+	if current_path == BOSS_ARENA_1:
 		get_tree().change_scene_to_file(LEVEL_1_SCENE)
 		return
 
-	# Jika mati di Level 1, respawn di posisi awal.
+	# MATI DI BOSS ARENA 2
+	if current_path == BOSS_ARENA_2:
+		get_tree().change_scene_to_file(LEVEL_2_SCENE)
+		return
+
+	push_error("Scene respawn belum terdaftar: " + current_path)
+	is_respawning = false
+
+func respawn_at_spawn() -> void:
 	global_position = spawn_position
 	velocity = Vector2.ZERO
 	health = max_health
 
-	# Perbarui HUD setelah HP dipulihkan.
 	health_changed.emit(health, max_health)
 
 	is_dead = false

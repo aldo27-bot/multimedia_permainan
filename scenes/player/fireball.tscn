@@ -1,0 +1,51 @@
+[gd_scene format=3 uid="uid://bhuftg7w8kk6m"]
+
+[ext_resource type="Script" uid="uid://bocgwvr0gcbsu" path="res://scripts/fireball.gd" id="1_fyjsl"]
+[ext_resource type="Texture2D" uid="uid://g07fkc8jf3fx" path="res://assets/player/Mage/Fire/fire1.png" id="1_q3k02"]
+[ext_resource type="Texture2D" uid="uid://hphskno6k1k7" path="res://assets/player/Mage/Fire/fire2.png" id="2_fyjsl"]
+[ext_resource type="Texture2D" uid="uid://wh68vk8rfehn" path="res://assets/player/Mage/Fire/fire3.png" id="3_plp8d"]
+[ext_resource type="Texture2D" uid="uid://bdi4g4wvbh6ot" path="res://assets/player/Mage/Fire/fire4.png" id="4_q824k"]
+[ext_resource type="AudioStream" uid="uid://cimnnokpc8rmt" path="res://assets/Audio/Fireball.ogg" id="5_q3k02"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_06xlf"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_q3k02")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_fyjsl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_plp8d")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_q824k")
+}],
+"loop": true,
+"name": &"attack",
+"speed": 10.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_q3k02"]
+size = Vector2(109, 28)
+
+[node name="Fireball" type="Area2D" unique_id=1916666024]
+script = ExtResource("1_fyjsl")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1224986421]
+position = Vector2(0.5, 0.49999523)
+scale = Vector2(4.03125, 2.3437502)
+sprite_frames = SubResource("SpriteFrames_06xlf")
+animation = &"attack"
+autoplay = "attack"
+frame = 2
+frame_progress = 0.30153817
+flip_h = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2092843870]
+position = Vector2(6.5, 18)
+shape = SubResource("RectangleShape2D_q3k02")
+
+[node name="Fire Attack" type="AudioStreamPlayer2D" parent="." unique_id=847468465]
+stream = ExtResource("5_q3k02")

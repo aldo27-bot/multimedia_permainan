@@ -5,6 +5,8 @@
 [ext_resource type="PackedScene" uid="uid://c4e3gh5h7dr0v" path="res://scenes/mob/Boss1.tscn" id="3_kyu7g"]
 [ext_resource type="PackedScene" uid="uid://dlxbq5es5a1ya" path="res://scenes/extra/health_hud.tscn" id="4_ewsyu"]
 [ext_resource type="PackedScene" uid="uid://b5daf2jtmsi4m" path="res://scenes/extra/health_hud_boss.tscn" id="5_kyu7g"]
+[ext_resource type="PackedScene" uid="uid://whga0i7oder7" path="res://scenes/extra/VictoryPopup.tscn" id="6_d3na4"]
+[ext_resource type="PackedScene" uid="uid://p33eotorwstj" path="res://scenes/extra/quit_button.tscn" id="7_qhvtd"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_u1xfj"]
 size = Vector2(1152, 224)
@@ -57,3 +59,7 @@ position = Vector2(882, 301)
 [node name="HealthHUD" parent="." unique_id=1973912371 instance=ExtResource("4_ewsyu")]
 
 [node name="HealthHUD2" parent="." unique_id=187090666 instance=ExtResource("5_kyu7g")]
+
+[node name="VictoryPopup" parent="." unique_id=2037768998 instance=ExtResource("6_d3na4")]
+
+[node name="QuitButton" parent="." unique_id=416301212 instance=ExtResource("7_qhvtd")]

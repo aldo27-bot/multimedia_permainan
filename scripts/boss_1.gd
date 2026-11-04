@@ -1,4 +1,3 @@
-
 extends CharacterBody2D
 
 signal health_changed(current_health: int, maximum_health: int)
@@ -20,7 +19,9 @@ const GRAVITY: float = 1200.0
 @onready var attack_area: Area2D = $AttackArea
 @onready var attack_shape: CollisionShape2D = $AttackArea/CollisionShape2D
 
-var health: int = 20
+@onready var sfx_attack: AudioStreamPlayer2D = $SFX_Attack
+
+var health: int = 15
 var player: CharacterBody2D = null
 
 var is_hurt: bool = false
@@ -34,17 +35,26 @@ var facing: float = -1.0
 
 func _ready() -> void:
 	health = max_health
+
+	# Grup khusus Boss 1 dan grup umum untuk kompatibilitas.
+	add_to_group("boss1")
+	add_to_group("mobs")
+
 	attack_shape.set_deferred("disabled", true)
 
 	if not sprite.animation_finished.is_connected(_on_animation_finished):
 		sprite.animation_finished.connect(_on_animation_finished)
 
-	# Kirim HP awal kepada HUD boss.
-	health_changed.emit(health, max_health)
-
 	find_player()
 	update_attack_area_position()
 	sprite.play("idle")
+
+	# Kirim HP awal ke HUD.
+	health_changed.emit(health, max_health)
+
+	print("BOSS 1 SIAP")
+	print("GRUP BOSS 1: ", is_in_group("boss1"))
+	print("HP BOSS 1: ", health, "/", max_health)
 
 
 func find_player() -> void:
@@ -68,24 +78,24 @@ func _physics_process(delta: float) -> void:
 	else:
 		velocity.y = 0.0
 
+	if not is_instance_valid(player):
+		find_player()
+
 	if is_hurt or is_attacking:
 		velocity.x = 0.0
 		move_and_slide()
 		return
 
 	if not is_instance_valid(player):
-		find_player()
-
-	if not is_instance_valid(player):
 		velocity.x = 0.0
 		move_and_slide()
-		sprite.play("idle")
+		play_animation_if_exists("idle")
 		return
 
 	if player.is_dead:
 		velocity.x = 0.0
 		move_and_slide()
-		sprite.play("idle")
+		play_animation_if_exists("idle")
 		return
 
 	var difference: Vector2 = player.global_position - global_position
@@ -94,16 +104,14 @@ func _physics_process(delta: float) -> void:
 	if distance > detection_range:
 		velocity.x = 0.0
 		move_and_slide()
-		sprite.play("idle")
+		play_animation_if_exists("idle")
 		return
 
-	# Boss menghadap ke arah Player.
 	if difference.x != 0.0:
 		facing = signf(difference.x)
 		sprite.flip_h = facing < 0.0
 		update_attack_area_position()
 
-	# Serang jika Player berada dalam jangkauan.
 	if absf(difference.x) <= attack_range \
 	and absf(difference.y) <= vertical_attack_range \
 	and attack_timer <= 0.0:
@@ -111,13 +119,12 @@ func _physics_process(delta: float) -> void:
 		move_and_slide()
 		return
 
-	# Kejar Player.
 	if absf(difference.x) > attack_range * 0.65:
 		velocity.x = signf(difference.x) * move_speed
-		sprite.play("Walk")
+		play_animation_if_exists("Walk")
 	else:
 		velocity.x = 0.0
-		sprite.play("idle")
+		play_animation_if_exists("idle")
 
 	move_and_slide()
 
@@ -135,13 +142,19 @@ func start_attack() -> void:
 	attack_timer = attack_cooldown
 	velocity.x = 0.0
 
+	if is_instance_valid(player):
+		facing = -1.0 if player.global_position.x < global_position.x else 1.0
+
+	sprite.flip_h = facing < 0.0
 	update_attack_area_position()
+
 	attack_shape.set_deferred("disabled", false)
 	sprite.play("Attack")
+	sfx_attack.play()
 
 	await get_tree().create_timer(attack_hit_delay).timeout
 
-	if not is_inside_tree() or is_dead or is_hurt:
+	if not is_inside_tree() or is_dead or is_hurt or not is_attacking:
 		return
 
 	if not is_instance_valid(player):
@@ -157,7 +170,7 @@ func start_attack() -> void:
 
 		await get_tree().physics_frame
 
-		if not is_inside_tree() or is_dead or is_hurt:
+		if not is_inside_tree() or is_dead or is_hurt or not is_attacking:
 			return
 
 		var player_in_hitbox: bool = false
@@ -167,12 +180,12 @@ func start_attack() -> void:
 				player_in_hitbox = true
 				break
 
-		# Gunakan hitbox atau pemeriksaan jarak sebagai alternatif.
 		if (player_in_hitbox or (in_front and close_enough)) \
 		and not attack_has_hit:
 			if player.has_method("take_damage"):
 				attack_has_hit = true
 				player.take_damage(attack_damage)
+				print("BOSS 1 MENYERANG PLAYER! DAMAGE: ", attack_damage)
 
 	attack_shape.set_deferred("disabled", true)
 
@@ -183,8 +196,9 @@ func take_damage(amount: int = 1) -> void:
 
 	health = maxi(health - amount, 0)
 
-	# Perbarui angka HP boss setiap menerima damage.
+	# Update HUD setiap HP berubah.
 	health_changed.emit(health, max_health)
+	print("BOSS 1 TERKENA SERANGAN! HP: ", health, "/", max_health)
 
 	if health <= 0:
 		die()
@@ -195,7 +209,7 @@ func take_damage(amount: int = 1) -> void:
 	velocity.x = 0.0
 
 	attack_shape.set_deferred("disabled", true)
-	sprite.play("Hurt")
+	play_animation_if_exists("Hurt")
 
 
 func die() -> void:
@@ -210,22 +224,39 @@ func die() -> void:
 	attack_shape.set_deferred("disabled", true)
 	body_shape.set_deferred("disabled", true)
 
+	collision_layer = 0
+	collision_mask = 0
+
+	health_changed.emit(0, max_health)
+
 	sprite.speed_scale = 1.0
-	sprite.play("Dead")
+	play_animation_if_exists("Dead")
+	print("BOSS 1 MATI")
+
+
+func play_animation_if_exists(animation_name: String) -> void:
+	if sprite.sprite_frames.has_animation(animation_name):
+		if sprite.animation != animation_name:
+			sprite.play(animation_name)
 
 
 func _on_animation_finished() -> void:
 	match sprite.animation:
 		"Hurt":
 			is_hurt = false
-			sprite.play("idle")
+			play_animation_if_exists("idle")
 
 		"Attack":
 			is_attacking = false
 			attack_shape.set_deferred("disabled", true)
 
 			if not is_dead and not is_hurt:
-				sprite.play("idle")
+				play_animation_if_exists("idle")
 
 		"Dead":
-			pass
+			var popup = get_tree().current_scene.find_child(
+				"VictoryPopup", true, false
+			)
+
+			if popup and popup.has_method("show_victory"):
+				popup.show_victory()

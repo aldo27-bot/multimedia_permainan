@@ -1,9 +1,11 @@
 
 extends Area2D
 
-@export_file("*.tscn") var boss_scene_path: String = "res://scenes/bossarena/BossArena1.tscn"
-
 var player_in_range: bool = false
+var is_transitioning: bool = false
+
+const BOSS_1_PATH := "res://scenes/bossarena/BossArena1.tscn"
+const BOSS_2_PATH := "res://scenes/bossarena/BossArena2.tscn"
 
 
 func _ready() -> void:
@@ -23,8 +25,35 @@ func _on_body_exited(body: Node2D) -> void:
 
 
 func _process(_delta: float) -> void:
-	if player_in_range and Input.is_action_just_pressed("interact"):
-		if boss_scene_path != "" and ResourceLoader.exists(boss_scene_path):
-			get_tree().change_scene_to_file(boss_scene_path)
-		else:
-			push_error("Path scene boss tidak ditemukan: " + boss_scene_path)
+	if not player_in_range or is_transitioning:
+		return
+
+	if Input.is_action_just_pressed("interact"):
+		enter_boss_arena()
+
+
+func enter_boss_arena() -> void:
+	var current_scene := get_tree().current_scene
+	var scene_name := current_scene.scene_file_path.get_file().to_lower()
+
+	var target_path := ""
+
+	if scene_name == "level_1.tscn":
+		target_path = BOSS_1_PATH
+	elif scene_name == "level2.tscn":
+		target_path = BOSS_2_PATH
+	else:
+		push_error("Level tidak dikenali: " + scene_name)
+		return
+
+	if not ResourceLoader.exists(target_path):
+		push_error("Arena boss tidak ditemukan: " + target_path)
+		return
+
+	is_transitioning = true
+
+	var error := get_tree().change_scene_to_file(target_path)
+
+	if error != OK:
+		is_transitioning = false
+		push_error("Gagal membuka arena boss: " + target_path)

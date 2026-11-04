@@ -2,18 +2,18 @@
 
 [ext_resource type="Script" uid="uid://b0vrn8eao4ja2" path="res://scripts/level_1.gd" id="1_f31ou"]
 [ext_resource type="Texture2D" uid="uid://qrsmffbpucov" path="res://assets/Asset tileset/1 Tiles/Tile_25.png" id="1_yjx6d"]
+[ext_resource type="Texture2D" uid="uid://ftwq33d6hg1k" path="res://assets/backgrounds/Background lv1.png" id="2_67nyq"]
 [ext_resource type="Texture2D" uid="uid://bi1g5blpi4e" path="res://assets/Asset tileset/1 Tiles/Tile_12.png" id="2_nesnd"]
-[ext_resource type="Texture2D" uid="uid://c87lb4aqcwx7a" path="res://assets/Asset tileset/2 Background/Background.png" id="2_nkd5c"]
 [ext_resource type="PackedScene" uid="uid://do8hjmn2lmfx8" path="res://scenes/player/player.tscn" id="3_1tw23"]
-[ext_resource type="Texture2D" uid="uid://drrj6k8y1ocqw" path="res://assets/Asset tileset/2 Background/Layers/1.png" id="3_g6jqf"]
-[ext_resource type="Texture2D" uid="uid://day1ugwbd1g33" path="res://assets/Asset tileset/2 Background/Layers/2.png" id="4_4lejf"]
 [ext_resource type="Texture2D" uid="uid://dtxsvt1okcxby" path="res://assets/Asset tileset/1 Tiles/Tile_14.png" id="4_oa06b"]
 [ext_resource type="Texture2D" uid="uid://byryg0owoqltr" path="res://assets/Asset tileset/1 Tiles/Tile_16.png" id="5_jhr6q"]
 [ext_resource type="Texture2D" uid="uid://j0cihlrekx3d" path="res://assets/Asset tileset/1 Tiles/Tile_22.png" id="6_jhr6q"]
 [ext_resource type="Texture2D" uid="uid://dqrk54w4w2aah" path="res://assets/Asset tileset/1 Tiles/Tile_31.png" id="7_t75vn"]
 [ext_resource type="PackedScene" uid="uid://duogk2j0gb6c3" path="res://scenes/mob/mob1.tscn" id="11_en30h"]
 [ext_resource type="PackedScene" uid="uid://dek0lw3mc8k4b" path="res://scenes/extra/BossDorr.tscn" id="12_67nyq"]
+[ext_resource type="PackedScene" uid="uid://p33eotorwstj" path="res://scenes/extra/quit_button.tscn" id="13_4lejf"]
 [ext_resource type="PackedScene" uid="uid://dlxbq5es5a1ya" path="res://scenes/extra/health_hud.tscn" id="13_xouw5"]
+[ext_resource type="PackedScene" uid="uid://bhuftg7w8kk6m" path="res://scenes/player/fireball.tscn" id="14_4lejf"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_nesnd"]
 texture = ExtResource("1_yjx6d")
@@ -87,30 +87,15 @@ sources/8 = SubResource("TileSetAtlasSource_g6jqf")
 sources/9 = SubResource("TileSetAtlasSource_en30h")
 
 [node name="Level1" type="Node2D" unique_id=1004794596]
+position = Vector2(1, 0)
 script = ExtResource("1_f31ou")
 
-[node name="Background1" type="TextureRect" parent="." unique_id=813851378]
-modulate = Color(1, 1, 1, 0.5137255)
-offset_top = -173.0
-offset_right = 2012.0
-offset_bottom = 645.0
-texture = ExtResource("2_nkd5c")
-
-[node name="Background2" type="TextureRect" parent="." unique_id=1251269140]
-modulate = Color(1, 1, 1, 0.45490196)
-self_modulate = Color(1, 1, 1, 0.6901961)
-offset_left = 3.0
-offset_top = 649.0
-offset_right = 2015.0
-offset_bottom = 1026.0
-texture = ExtResource("3_g6jqf")
-
 [node name="Background3" type="TextureRect" parent="." unique_id=504196498]
-offset_left = 10.0
-offset_top = -340.0
-offset_right = 2022.0
-offset_bottom = 693.0
-texture = ExtResource("4_4lejf")
+offset_left = -15.0
+offset_top = -248.0
+offset_right = 1887.0
+offset_bottom = 877.0
+texture = ExtResource("2_67nyq")
 
 [node name="Platform" type="TileMapLayer" parent="." unique_id=740688825]
 position = Vector2(432, 469)
@@ -119,7 +104,7 @@ tile_set = SubResource("TileSet_uye1i")
 
 [node name="Player" parent="." unique_id=1913331183 instance=ExtResource("3_1tw23")]
 z_index = 1
-position = Vector2(57, 337)
+position = Vector2(69, 361)
 
 [node name="Camera2D2" type="Camera2D" parent="Player" unique_id=1522658256]
 position = Vector2(0, -10)
@@ -144,3 +129,11 @@ position = Vector2(1763, 384)
 position = Vector2(881, 187)
 
 [node name="HealthHUD" parent="." unique_id=1973912371 instance=ExtResource("13_xouw5")]
+
+[node name="QuitButton" parent="." unique_id=416301212 instance=ExtResource("13_4lejf")]
+
+[node name="Fireball" parent="." unique_id=1916666024 instance=ExtResource("14_4lejf")]
+position = Vector2(1788, 334)
+
+[node name="Fireball2" parent="." unique_id=344391549 instance=ExtResource("14_4lejf")]
+position = Vector2(2008, 246)

@@ -1,0 +1,56 @@
+[gd_scene format=3 uid="uid://bf8ui4u85620v"]
+
+[ext_resource type="Texture2D" uid="uid://es0drqig7hua" path="res://assets/backgrounds/castle.png" id="1_vwd1b"]
+[ext_resource type="PackedScene" uid="uid://do8hjmn2lmfx8" path="res://scenes/player/player.tscn" id="2_xergl"]
+[ext_resource type="PackedScene" uid="uid://dlxbq5es5a1ya" path="res://scenes/extra/health_hud.tscn" id="3_3vdsb"]
+[ext_resource type="PackedScene" uid="uid://by2odf7dneel7" path="res://scenes/mob/Boss2.tscn" id="4_j0e44"]
+[ext_resource type="PackedScene" uid="uid://b5daf2jtmsi4m" path="res://scenes/extra/health_hud_boss.tscn" id="5_7qf0c"]
+[ext_resource type="PackedScene" uid="uid://whga0i7oder7" path="res://scenes/extra/VictoryPopup.tscn" id="6_ygn3k"]
+[ext_resource type="PackedScene" uid="uid://p33eotorwstj" path="res://scenes/extra/quit_button.tscn" id="7_iwu3l"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3vdsb"]
+size = Vector2(1155, 169)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_j0e44"]
+size = Vector2(40, 657)
+
+[node name="BossArena2" type="Node2D" unique_id=1051950013]
+
+[node name="background" type="TextureRect" parent="." unique_id=1287949212]
+offset_right = 1152.0
+offset_bottom = 648.0
+texture = ExtResource("1_vwd1b")
+expand_mode = 1
+
+[node name="Ground" type="StaticBody2D" parent="." unique_id=1021658031]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground" unique_id=896896316]
+position = Vector2(575, 563)
+shape = SubResource("RectangleShape2D_3vdsb")
+
+[node name="LeftWall" type="StaticBody2D" parent="." unique_id=1276249104]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LeftWall" unique_id=992254219]
+position = Vector2(10, 318.5)
+shape = SubResource("RectangleShape2D_j0e44")
+
+[node name="RightWall" type="StaticBody2D" parent="." unique_id=1534014264]
+position = Vector2(55, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RightWall" unique_id=16677813]
+position = Vector2(1076, 319)
+shape = SubResource("RectangleShape2D_j0e44")
+
+[node name="Player" parent="." unique_id=1913331183 instance=ExtResource("2_xergl")]
+position = Vector2(282, 390)
+
+[node name="HealthHUD" parent="." unique_id=1973912371 instance=ExtResource("3_3vdsb")]
+
+[node name="Boss2" parent="." unique_id=1239726554 instance=ExtResource("4_j0e44")]
+position = Vector2(898, 375)
+
+[node name="HealthHUDBoss" parent="." unique_id=1438174091 instance=ExtResource("5_7qf0c")]
+
+[node name="VictoryPopup" parent="." unique_id=2037768998 instance=ExtResource("6_ygn3k")]
+
+[node name="QuitButton" parent="." unique_id=416301212 instance=ExtResource("7_iwu3l")]

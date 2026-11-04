@@ -1,0 +1,273 @@
+[gd_scene format=3 uid="uid://c6bv1of0itov6"]
+
+[ext_resource type="Texture2D" uid="uid://8hb6vvur8yh4" path="res://assets/menulevel/backgroundlevel.png" id="1_l562o"]
+[ext_resource type="Script" uid="uid://dt5boe7aux3r5" path="res://scripts/level_menu.gd" id="1_lukdm"]
+[ext_resource type="Texture2D" uid="uid://beq073pau04d6" path="res://assets/menulevel/selectlevel.png" id="2_w84at"]
+[ext_resource type="Texture2D" uid="uid://dt2cnv38aaovm" path="res://assets/menulevel/bingkai.png" id="3_trcyl"]
+[ext_resource type="Texture2D" uid="uid://b5mwntui5saea" path="res://assets/menulevel/play.png" id="4_lukdm"]
+[ext_resource type="Texture2D" uid="uid://wr0itkd1oqih" path="res://assets/boss/Idle.png" id="4_w84at"]
+[ext_resource type="Texture2D" uid="uid://d0t4mami7iwv8" path="res://assets/menulevel/buttonback.png" id="5_hypt8"]
+[ext_resource type="Texture2D" uid="uid://ljao8lbio0r1" path="res://assets/boss2/Yamabushi_tengu/Idle.png" id="6_trcyl"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_trcyl"]
+atlas = ExtResource("4_w84at")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lukdm"]
+atlas = ExtResource("4_w84at")
+region = Rect2(128, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hypt8"]
+atlas = ExtResource("4_w84at")
+region = Rect2(256, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6jc2k"]
+atlas = ExtResource("4_w84at")
+region = Rect2(384, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vy1s4"]
+atlas = ExtResource("4_w84at")
+region = Rect2(512, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0hv2f"]
+atlas = ExtResource("4_w84at")
+region = Rect2(640, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xn8ki"]
+atlas = ExtResource("4_w84at")
+region = Rect2(768, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eihhy"]
+atlas = ExtResource("4_w84at")
+region = Rect2(896, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_taegx"]
+atlas = ExtResource("4_w84at")
+region = Rect2(1024, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7wh1d"]
+atlas = ExtResource("4_w84at")
+region = Rect2(1152, 0, 128, 128)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ndv2t"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_trcyl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lukdm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hypt8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6jc2k")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vy1s4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0hv2f")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xn8ki")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_eihhy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_taegx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7wh1d")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ndv2t"]
+atlas = ExtResource("6_trcyl")
+region = Rect2(256, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eb8xj"]
+atlas = ExtResource("6_trcyl")
+region = Rect2(384, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cllx3"]
+atlas = ExtResource("6_trcyl")
+region = Rect2(512, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6def1"]
+atlas = ExtResource("6_trcyl")
+region = Rect2(640, 0, 128, 128)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_12k56"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ndv2t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_eb8xj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cllx3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6def1")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[node name="LevelMenu" type="Control" unique_id=579560955]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_lukdm")
+
+[node name="Background" type="TextureRect" parent="." unique_id=1296661234]
+self_modulate = Color(1, 1, 1, 0.70980394)
+layout_mode = 1
+offset_right = 1152.0
+offset_bottom = 647.0
+texture = ExtResource("1_l562o")
+expand_mode = 1
+
+[node name="Title" type="TextureRect" parent="." unique_id=348361896]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = 466.0
+offset_top = 9.0
+offset_right = 705.0
+offset_bottom = 82.0
+grow_horizontal = 0
+texture = ExtResource("2_w84at")
+expand_mode = 1
+
+[node name="LevelCards" type="HBoxContainer" parent="." unique_id=1366563546]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 324.0
+offset_top = 160.0
+offset_right = 878.0
+offset_bottom = 484.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 60
+
+[node name="Boss1Card" type="Control" parent="LevelCards" unique_id=811099043]
+layout_mode = 2
+
+[node name="Frame" type="TextureRect" parent="LevelCards/Boss1Card" unique_id=1964176525]
+layout_mode = 0
+offset_left = -6.0
+offset_top = -13.0
+offset_right = 244.0
+offset_bottom = 264.0
+texture = ExtResource("3_trcyl")
+expand_mode = 1
+
+[node name="Boss1" type="AnimatedSprite2D" parent="LevelCards/Boss1Card" unique_id=1245808679]
+position = Vector2(132.99998, 97.99999)
+scale = Vector2(1.40625, 1.59375)
+sprite_frames = SubResource("SpriteFrames_ndv2t")
+animation = &"idle"
+autoplay = "idle"
+frame = 7
+frame_progress = 0.3185967
+
+[node name="PlayButton" type="TextureButton" parent="LevelCards/Boss1Card" unique_id=700157104]
+layout_mode = 0
+offset_left = 39.0
+offset_top = 252.0
+offset_right = 196.0
+offset_bottom = 320.0
+texture_normal = ExtResource("4_lukdm")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Label" type="Label" parent="LevelCards/Boss1Card/PlayButton" unique_id=1441592698]
+layout_mode = 0
+offset_left = 59.0
+offset_top = 21.0
+offset_right = 102.0
+offset_bottom = 44.0
+text = "MAIN"
+
+[node name="Level 1" type="Label" parent="LevelCards/Boss1Card" unique_id=1593301661]
+layout_mode = 0
+offset_left = 55.0
+offset_top = 50.0
+offset_right = 95.0
+offset_bottom = 93.0
+theme_override_font_sizes/font_size = 14
+text = "LEVEL 1"
+autowrap_mode = 3
+
+[node name="Boss2Card" type="Control" parent="LevelCards" unique_id=237201517]
+layout_mode = 2
+
+[node name="Frame" type="TextureRect" parent="LevelCards/Boss2Card" unique_id=766241862]
+layout_mode = 0
+offset_left = 241.0
+offset_top = -10.0
+offset_right = 491.0
+offset_bottom = 267.0
+texture = ExtResource("3_trcyl")
+expand_mode = 1
+
+[node name="Boss2" type="AnimatedSprite2D" parent="LevelCards/Boss2Card" unique_id=165251910]
+position = Vector2(375, 108.5)
+scale = Vector2(1.3125, 1.4453125)
+sprite_frames = SubResource("SpriteFrames_12k56")
+animation = &"idle"
+autoplay = "idle"
+frame = 3
+frame_progress = 0.9935095
+
+[node name="PlayButton" type="TextureButton" parent="LevelCards/Boss2Card" unique_id=1615035078]
+layout_mode = 0
+offset_left = 286.0
+offset_top = 255.0
+offset_right = 443.0
+offset_bottom = 323.0
+texture_normal = ExtResource("4_lukdm")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Label" type="Label" parent="LevelCards/Boss2Card/PlayButton" unique_id=717262741]
+layout_mode = 0
+offset_left = 58.0
+offset_top = 22.0
+offset_right = 101.0
+offset_bottom = 45.0
+text = "MAIN"
+
+[node name="Level 2" type="Label" parent="LevelCards/Boss2Card" unique_id=1493961746]
+layout_mode = 0
+offset_left = 303.0
+offset_top = 55.0
+offset_right = 343.0
+offset_bottom = 98.0
+theme_override_font_sizes/font_size = 14
+text = "LEVEL 2"
+autowrap_mode = 3
+
+[node name="Backbutton" type="TextureButton" parent="." unique_id=88117392]
+layout_mode = 0
+offset_left = 14.0
+offset_top = 24.0
+offset_right = 173.0
+offset_bottom = 82.0
+texture_normal = ExtResource("5_hypt8")
+ignore_texture_size = true
+stretch_mode = 0
