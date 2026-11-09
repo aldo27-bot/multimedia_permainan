@@ -23,6 +23,7 @@ const GRAVITY: float = 1200.0
 @onready var body_shape: CollisionShape2D = $CollisionShape2D
 @onready var attack_area: Area2D = $AttackArea
 @onready var attack_shape: CollisionShape2D = $AttackArea/CollisionShape2D
+@onready var sfx_attack: AudioStreamPlayer2D = $SFX_Attack
 
 var health: int
 var start_x: float
@@ -169,6 +170,7 @@ func start_attack():
 
 	sprite.flip_h = direction < 0.0
 	sprite.play("attack1")
+	sfx_attack.play()
 
 	print("ORC MULAI MENYERANG")
 

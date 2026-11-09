@@ -20,6 +20,8 @@ const BOSS_ARENA_2 := "res://scenes/bossarena/BossArena2.tscn"
 @onready var attack_shape: CollisionShape2D = $AttackArea/CollisionShape2D
 @onready var walk_sound: AudioStreamPlayer2D = $WalkSound
 @onready var slash_sound: AudioStreamPlayer2D = $SlashSound
+@onready var slash_sound2: AudioStreamPlayer2D = $SlashSound2
+@onready var hurt_sound: AudioStreamPlayer2D = $HurtSound
 
 var health: int = 5
 var is_hurt: bool = false
@@ -101,7 +103,6 @@ func update_animation(direction: float) -> void:
 	else:
 		walk_sound.stop()
 
-
 func start_attack() -> void:
 	if is_dead or is_attacking or is_hurt:
 		return
@@ -114,15 +115,18 @@ func start_attack() -> void:
 
 	sprite.speed_scale = 1.5
 
+	# Hentikan semua suara slash sebelumnya
+	slash_sound.stop()
+	slash_sound2.stop()
+
 	if next_attack == 1:
 		sprite.play("attack1")
+		slash_sound.play()
 	else:
 		sprite.play("attack2")
+		slash_sound2.play()
 
 	walk_sound.stop()
-	slash_sound.stop()
-	slash_sound.play()
-
 
 func _on_attack_area_body_entered(body: Node2D) -> void:
 	if not is_attacking or is_dead or is_hurt:
@@ -145,6 +149,7 @@ func _on_animation_finished() -> void:
 		finish_attack()
 
 	elif sprite.animation == "hurt":
+		hurt_sound.play()
 		is_hurt = false
 		sprite.speed_scale = 1.0
 
@@ -156,7 +161,6 @@ func finish_attack() -> void:
 	attack_shape.set_deferred("disabled", true)
 	is_attacking = false
 	sprite.speed_scale = 1.0
-
 
 func take_damage(amount: int = 1) -> void:
 	if is_dead or is_hurt:
@@ -171,10 +175,19 @@ func take_damage(amount: int = 1) -> void:
 
 	is_hurt = true
 	is_attacking = false
+
+	# Hentikan suara sebelumnya
+	walk_sound.stop()
+	slash_sound.stop()
+	slash_sound2.stop()
+
+	# Mainkan hurt sound langsung saat terkena serangan
+	hurt_sound.stop()
+	hurt_sound.play()
+
 	attack_shape.set_deferred("disabled", true)
 	sprite.speed_scale = 1.0
 	sprite.play("hurt")
-
 
 func die() -> void:
 	if is_dead:
@@ -190,6 +203,8 @@ func die() -> void:
 
 	walk_sound.stop()
 	slash_sound.stop()
+	slash_sound2.stop()
+	hurt_sound.stop()
 
 	sprite.play("dead")
 

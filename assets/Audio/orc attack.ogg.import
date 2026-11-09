@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://bj4k2jn1vlggh"
+path="res://.godot/imported/orc attack.ogg-36c0d0e3a7673492c15961d35aae21f8.oggvorbisstr"
+
+[deps]
+
+source_file="res://assets/Audio/orc attack.ogg"
+dest_files=["res://.godot/imported/orc attack.ogg-36c0d0e3a7673492c15961d35aae21f8.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

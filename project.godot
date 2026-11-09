@@ -11,9 +11,11 @@ config_version=5
 [application]
 
 config/name="Boosrush"
-run/main_scene="uid://d2at1t027ddgd"
+run/main_scene="uid://lneh8a058vcr"
 config/features=PackedStringArray("4.6", "GL Compatibility")
-config/icon="res://icon.svg"
+boot_splash/bg_color=Color(0, 0, 0, 1)
+boot_splash/image="uid://dhmw0w0hd2w1f"
+config/icon="uid://dhmw0w0hd2w1f"
 
 [autoload]
 
@@ -21,6 +23,7 @@ MusicManager="*uid://kf5ycoffkvj5"
 
 [display]
 
+window/size/mode=3
 window/stretch/mode="canvas_items"
 
 [input]

@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://clfk0ryiycats" path="res://assets/boss2/Yamabushi_tengu/Hurt.png" id="4_11ege"]
 [ext_resource type="Texture2D" uid="uid://ljao8lbio0r1" path="res://assets/boss2/Yamabushi_tengu/Idle.png" id="5_2it84"]
 [ext_resource type="Texture2D" uid="uid://c4adgupogt8e2" path="res://assets/boss2/Yamabushi_tengu/Run.png" id="6_im6pe"]
+[ext_resource type="AudioStream" uid="uid://byk6o4nes0e46" path="res://assets/Audio/Boss2Attack.ogg" id="8_caacf"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_nsq2f"]
 atlas = ExtResource("1_ob54e")
@@ -297,3 +298,7 @@ shape = SubResource("RectangleShape2D_ob54e")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AttackArea" unique_id=12039279]
 position = Vector2(69, 34.5)
 shape = SubResource("RectangleShape2D_yabqj")
+
+[node name="SFX_Attack" type="AudioStreamPlayer2D" parent="." unique_id=1528166630]
+stream = ExtResource("8_caacf")
+volume_db = -0.5

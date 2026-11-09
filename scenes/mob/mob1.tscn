@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://cvylf2r7g5vis" path="res://assets/mob/orc/Idle.png" id="6_geg80"]
 [ext_resource type="Texture2D" uid="uid://cptncwqfbudgn" path="res://assets/mob/orc/Jump.png" id="7_agm3t"]
 [ext_resource type="Texture2D" uid="uid://clw1qad14ik1u" path="res://assets/mob/orc/Run.png" id="8_gw10o"]
+[ext_resource type="AudioStream" uid="uid://bj4k2jn1vlggh" path="res://assets/Audio/orc attack.ogg" id="9_4iutb"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ge4bb"]
 atlas = ExtResource("2_4iutb")
@@ -300,3 +301,7 @@ shape = SubResource("RectangleShape2D_4ix17")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AttackArea" unique_id=1177545832]
 position = Vector2(36, 30)
 shape = SubResource("RectangleShape2D_gl17k")
+
+[node name="SFX_Attack" type="AudioStreamPlayer2D" parent="." unique_id=813093889]
+stream = ExtResource("9_4iutb")
+volume_db = -0.5

@@ -10,6 +10,8 @@
 [ext_resource type="Texture2D" uid="uid://dfg3ixpl11lfn" path="res://assets/player/Swordsman/Run.png" id="8_myrg7"]
 [ext_resource type="AudioStream" uid="uid://dq4kpdpi10gbn" path="res://assets/Audio/run_in_grass.ogg" id="9_h17s1"]
 [ext_resource type="AudioStream" uid="uid://dv4lx247cfhkj" path="res://assets/Audio/axe_slash.ogg" id="10_je7p5"]
+[ext_resource type="AudioStream" uid="uid://cs2vxadsmyrkk" path="res://assets/Audio/SwordSlash2.mp3" id="11_fm80t"]
+[ext_resource type="AudioStream" uid="uid://bo0qpxmt4wdq6" path="res://assets/Audio/hurt.ogg" id="11_je7p5"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_kvlxm"]
 atlas = ExtResource("2_h17s1")
@@ -344,3 +346,12 @@ volume_db = 19.5
 
 [node name="SlashSound" type="AudioStreamPlayer2D" parent="." unique_id=2140818839]
 stream = ExtResource("10_je7p5")
+volume_db = -5.0
+
+[node name="SlashSound2" type="AudioStreamPlayer2D" parent="." unique_id=1718201677]
+stream = ExtResource("11_fm80t")
+volume_db = -5.0
+
+[node name="HurtSound" type="AudioStreamPlayer2D" parent="." unique_id=553626476]
+stream = ExtResource("11_je7p5")
+volume_db = -5.0

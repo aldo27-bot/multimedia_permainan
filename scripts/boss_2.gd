@@ -1,4 +1,3 @@
-
 extends CharacterBody2D
 
 # =========================
@@ -24,6 +23,7 @@ var health: int = 20
 @export var attack_cooldown: float = 1.5
 @export var attack_hit_delay: float = 0.4
 @export var vertical_attack_range: float = 65.0
+@onready var sfx_attack: AudioStreamPlayer2D = $SFX_Attack
 
 # =========================
 # PHYSICS
@@ -155,7 +155,6 @@ func _physics_process(delta: float) -> void:
 
 	move_and_slide()
 
-
 # =========================
 # ATTACK AREA POSITION
 # =========================
@@ -197,9 +196,11 @@ func start_attack() -> void:
 
 	if next_attack == 1:
 		attack_animation = "attack1"
+		sfx_attack.play()
 		next_attack = 2
 	else:
 		attack_animation = "attack2"
+		sfx_attack.play()
 		next_attack = 1
 
 	if not sprite.sprite_frames.has_animation(attack_animation):
